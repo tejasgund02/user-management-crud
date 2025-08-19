@@ -1,0 +1,42 @@
+[ Client ] -> [ Nginx (Load Balancer) ] -> [ Laravel App (PHP-FPM) ] -> [ DB ]
+                                           -> [ Redis ]
+                                           -> [ Storage Service ]
+
+[ GitLab CI/CD ] -> [ Build Docker Image ] -> [ Deploy to Cloud ]
+
+
+
+Components
+Client – End users on browser or mobile
+
+Nginx Reverse Proxy – Routes HTTP/S traffic
+
+Laravel App (PHP‑FPM) – Core application logic
+
+Database (MySQL/PostgreSQL) – Persistent data store
+
+Redis – Caching and queue handling
+
+Queue Worker – Runs background jobs
+
+Object Storage (S3/Azure Blob) – File handling and uploads
+
+Monitoring/Logging – Observability stack (Prometheus, Grafana, ELK)
+
+CI/CD Flow
+Push to Git triggers the GitLab pipeline
+
+Docker image gets built
+
+Tests run automatically
+
+Deploys to staging
+
+Manual or automatic promotion to production
+
+Benefits
+Can scale horizontally using multiple containers
+
+Rollbacks are fast thanks to versioned Docker images
+
+CI/CD makes releases faster and less error‑prone
